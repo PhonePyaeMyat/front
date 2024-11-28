@@ -51,11 +51,9 @@
                     <div v-if="!loading && !error && filteredAndSortedLessons.length === 0" class="alert alert-info">
                         No lessons found matching your search.
                     </div>
-
-
                 </div>
             </div>
-            <!-- Lessons List -->
+
             <div v-if="!loading && !error" class="row">
                 <div class="col-lg-6" v-for="lesson in filteredAndSortedLessons" :key="lesson.id">
                     <div class="card mb-3">
