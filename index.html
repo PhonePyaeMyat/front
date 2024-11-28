@@ -40,7 +40,6 @@
                         {{ sortOrder === 'asc' ? 'Ascending' : 'Descending' }}
                     </button>
 
-                    <!-- Loading State -->
                     <div v-if="loading" class="text-center">
                         <p>Loading lessons...</p>
                     </div>
@@ -136,7 +135,6 @@
                     orderMessage: '',
                     orderError: false,
                     isCheckingOut: false,
-                    // Add search query to data
                     searchQuery: ''
                 };
             },
@@ -147,7 +145,7 @@
                         return [];
                     }
 
-                    // First, filter the lessons based on search query
+
                     const filteredLessons = this.Lessons.filter(lesson => {
                         if (!this.searchQuery) return true;
 
@@ -156,7 +154,6 @@
                             lesson.location.toLowerCase().includes(query);
                     });
 
-                    // Then sort the filtered lessons
                     const orderFactor = this.sortOrder === 'asc' ? 1 : -1;
                     return filteredLessons.sort((a, b) => {
                         if (a[this.sortBy] > b[this.sortBy]) return orderFactor;
@@ -179,7 +176,6 @@
                 },
             },
             methods: {
-                // Add method to clear search
                 clearSearch() {
                     this.searchQuery = '';
                 },
